@@ -6,6 +6,10 @@ body {
     line-height: 1.6;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 header {
     background: #333;
     color: #fff;
@@ -26,6 +30,16 @@ header nav ul li {
 header nav ul li a {
     color: #fff;
     text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #007BFF; /* Accent color */
 }
 
 section {
@@ -50,10 +64,15 @@ form input, form textarea {
 
 form button {
     padding: 0.5rem 1rem;
-    background: #333;
+    background: #007BFF;
     color: #fff;
     border: none;
     cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+form button:hover {
+    background: #0056b3;
 }
 
 footer {
