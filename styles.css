@@ -23,7 +23,7 @@ header nav ul {
 }
 
 header nav ul li a {
-    color: fff;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -45,7 +45,7 @@ header nav ul li a {
 .cta-button {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background: fff;
+    background: #fff;
     color: #007BFF;
     text-transform: uppercase;
     font-weight: bold;
