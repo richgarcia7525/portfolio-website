@@ -45,6 +45,17 @@ header nav ul li a {
     align-items: center;
 }
 
+#hero blockquote {
+    font-style: italic;
+    color: #FFFFFF;
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    text-align: center;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
 #hero h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -97,14 +108,27 @@ section.show {
 
 /* Projects Section */
 section#projects div {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ddd;
-    padding: 1rem;
+    background: #FFFFFF;
+    border: 2px solid #0ABAB5;
+    padding: 1.5rem;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 1rem auto;
     max-width: 700px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section#projects div h3 {
+    color: #884513;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+section#projects div p {
+    color: #0ABAB5;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 section#projects div:hover {
@@ -116,16 +140,16 @@ section#projects .btn {
     display: inline-block;
     margin: 0.5rem 0;
     padding: 0.5rem 1rem;
-    color: #0ABAB5;
+    color: #884513;
     text-decoration: none;
     font-weight: bold;
-    border: 1px solid #0ABAB5;
+    border: 2px solid #884513;
     border-radius: 4px;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 section#projects .btn:hover {
-    background: #0ABAB5;
+    background: #884513;
     color: #FFFFFF;
 }
 
@@ -148,11 +172,12 @@ section#projects .btn:hover {
     font-size: 1.4rem;
 }
 
-/* Resume Section */
 #resume {
-    background: #884513;
+    background: #884513; /* Brown color matching the header */
     padding: 2rem;
-}   color: #FFFFFF;
+    color: #FFFFFF; /* Ensure text is visible on the brown background */
+}
+
 
 #resume p {
     text-align: center;
@@ -162,13 +187,28 @@ section#projects .btn:hover {
 }
 
 /* Contact Form */
+#contact {
+    padding: 2rem;
+    text-align: center;
+    background: #0ABAB5;
+}
+
 #contact form {
     max-width: 600px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1.5rem;
     background: #FFFFFF;
-    color: #0ABAB5;
+    color: #8B4513;
     border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,  0, 0, 0.1);
+}
+
+#contact form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-weight:bold;
+    color: #8B4513;
 }
 
 #contact form input,
@@ -178,21 +218,32 @@ section#projects .btn:hover {
     margin-bottom: 1rem;
     border: 1px solid #0ABAB5;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    color: #333;
+    background: #F4F4F4;
+    outline:  none;
+    transition: border 0.3s ease;
+}
+
+#contact form input:focus,
+#contact form textarea:focus {
+    border-color: #8B4513;
+    background: #FFFFFF;
 }
 
 #contact form button {
-    padding: 0.5rem 1rem;
-    background: #0ABAB5;
+    padding: 0.8rem 1.5rem;
+    background: #8B4513;
     color: #FFFFFF;
     border: none;
-    cursor: pointer;
     border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
     transition: background 0.3s ease;
 }
 
 #contact form button:hover {
-    background: #8B4513;
+    background: #0ABAB5;
 }
 
 /* Footer */
