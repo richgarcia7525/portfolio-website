@@ -2,7 +2,7 @@
 const controller = new ScrollMagic.Controller();
 new ScrollMagic.Scene({
     triggerElement: "#hero",
-    triggerHook: 0.5,
+    triggerHook: 0.7,
     duration: "100%"
 })
 .setTween("#hero", { backgroundPositionY: "50%" })
@@ -11,7 +11,7 @@ new ScrollMagic.Scene({
 // Three.js for 3D Cube
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.querySelector("#hero").appendChild(renderer.domElement);
 
@@ -32,7 +32,7 @@ animate();
 
 // Typed.js for Dynamic Typing Animation
 new Typed("#hero h2", {
-    strings: ["Welcome to my Portfolio", "Bringing Ideas to Life", "Web Development Extraordinaire"],
+    strings: ["Jose Garcia", "Bringing Ideas to Life", "Web Developer"],
     typeSpeed: 50,
     backSpeed: 30,
     loop: true
@@ -67,3 +67,16 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => {
     observer.observe(section);
 });
+
+// Debounce scroll for Performance 
+let debounce = (func, wait = 20) => {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+};
+
+window.addEventListener('scroll', debounce(() => {
+    console.log("Scrolling smoothly!");
+}));
