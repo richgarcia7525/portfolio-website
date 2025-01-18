@@ -1,82 +1,125 @@
-// ScrollMagic for Parallax Effect
-const controller = new ScrollMagic.Controller();
-new ScrollMagic.Scene({
-    triggerElement: "#hero",
-    triggerHook: 0.7,
-    duration: "100%"
-})
-.setTween("#hero", { backgroundPositionY: "50%" })
-.addTo(controller);
+// Typed.js for Dynamic Typing Animation in Hero Header
+new Typed("#typed-header-text", {
+    strings: [
+        "Unleashing Creativity Through Code."
+    ],
+    typeSpeed: 60,
+    backSpeed: 30,
+    loop: true
+});
 
-// Three.js for 3D Cube
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.querySelector("#hero").appendChild(renderer.domElement);
-
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x007BFF });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
-
-camera.position.z = 5;
-
-function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-}
-animate();
-
-// Typed.js for Dynamic Typing Animation
-new Typed("#hero h2", {
-    strings: ["Jose Garcia", "Bringing Ideas to Life", "Web Developer"],
+// Typed.js for Animated Intro in Footer
+new Typed("#typed-footer-text", {
+    strings: [
+        "I’m a Web Developer.",
+        "I bring ideas to life with code.",
+        "Let's build something amazing together."
+    ],
     typeSpeed: 50,
     backSpeed: 30,
     loop: true
 });
 
-// GSAP for Hover Animations
-document.querySelectorAll('.project').forEach(project => {
-    project.addEventListener('mouseenter', () => {
-        gsap.to(project, { scale: 1.1, duration: 0.3 });
-    });
-    project.addEventListener('mouseleave', () => {
-        gsap.to(project, { scale: 1, duration: 0.3 });
-    });
+// Three.js for 3D Rotating Shapes
+const skillScene = new THREE.Scene();
+const skillsCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const skillsRenderer = new THREE.WebGLRenderer({ alpha: true });
+skillsRenderer.setSize(window.innerWidth, 600);
+document.querySelector('#skills-animation').appendChild(skillsRenderer.domElement);
+
+// Adjust camera position and update projection matrix
+skillsCamera.position.z = 12; // Move camera slightly back
+skillsCamera.updateProjectionMatrix(); // Update projection matrix after position changes
+
+const colors = [0xff9900, 0x0ABAB5, 0x884513, 0x0056b3];
+const positions = [-3, -1, 1, 3];
+
+// Create larger rotating cubes
+positions.forEach((x, i) => {
+    const geometry = new THREE.BoxGeometry(4, 4, 4); // Larger size
+    const material = new THREE.MeshBasicMaterial({ color: colors[i] });
+    const cube = new THREE.Mesh(geometry, material);
+    cube.position.set(x * 6, 0, -5);
+    skillScene.add(cube);
 });
 
-// Intersection Observer for Smooth Section Reveal
-const sections = document.querySelectorAll('section');
-const observerOptions = {
-    threshold: 0.3
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
-        }
+// Animate the cubes
+function animateSkills() {
+    requestAnimationFrame(animateSkills);
+    skillScene.children.forEach((child) => {
+        child.rotation.x += 0.01;
+        child.rotation.y += 0.01;
     });
-}, observerOptions);
+    skillsRenderer.render(skillScene, skillsCamera);
+}
+animateSkills();
 
-sections.forEach(section => {
-    observer.observe(section);
+// Confetti Effect and Form Submission Handler
+document.querySelector("#contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Confetti effect
+    confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#0ABAB5', '#884513', '#FFFFFF']
+    });
+
+    // Display success message
+    const successMessage = document.querySelector("#success-message");
+    successMessage.style.display = "block";
+
+    // Clear the form
+    document.querySelector("#contact-form").reset();
+
+    // Hide the success message after 5 seconds
+    setTimeout(() => {
+        successMessage.style.display = "none";
+    }, 5000);
 });
 
-// Debounce scroll for Performance 
-let debounce = (func, wait = 20) => {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-};
+// Selecting the form element
+const form = document.querySelector("#contact-form");
 
-window.addEventListener('scroll', debounce(() => {
-    console.log("Scrolling smoothly!");
-}));
+// Adding an event listener to the form's submit event
+form.addEventListener("submit", async (e) => {
+  e.preventDefault(); // Prevent the default form submission behavior
+
+  // Retrieving form data
+  const name = document.querySelector("#name").value;
+  const email = document.querySelector("#email").value;
+  const message = document.querySelector("#message").value;
+
+  try {
+    // Sending the form data to the backend using the Fetch API
+    const response = await fetch("http://localhost:5000/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      // Displaying a success message with confetti
+      alert("Thank you! Your message has been sent.");
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#0ABAB5", "#884513"],
+      });
+
+      // Optionally reset the form fields after successful submission
+      form.reset();
+    } else {
+      alert("Failed to send your message. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    alert("An error occurred. Please try again later.");
+  }
+});

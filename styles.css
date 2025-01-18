@@ -3,278 +3,504 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
     background-color: #0ABAB5;
     color: #FFFFFF;
-    Overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 html {
     scroll-behavior: smooth;
     width: 100%;
-    height: 100%
+    height: 100%;
 }
 
-header{
-    background-color: #884513;
-    color: #FFFFFF;
-    padding: 1rem 0;
+header {
     text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #0ABAB5, #884513);
 }
 
-header nav ul {
-    list-style: none;
+header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#typed-header-text {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#typed-footer-text {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 20px auto;
+    font-weight: bold;
+}
+
+.typed-cursor {
+    font-size: 1.2rem; /* Match text size */
+    font-weight: bold; /* Ensure visibility */
+    vertical-align: baseline; /* Align with the text */
+    color: #FFFFFF; /* Match your text color */
+    animation: blink 0.7s infinite; /* Keep the blinking effect */
+}
+
+#hero {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+blockquote {
+    margin-top: 2rem;
+    font-style: italic;
+    color: #FFFFFF;
+}
+
+/* Skills Animation Section */
+#skills-animation {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    margin: none;
     padding: 0;
 }
 
-header nav ul li a {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-/* Hero Section Styles */
-#hero {
-    background: linear-gradient(to bottom, #0ABAB5, #8B4513);
-    color: #FFFFFF;
-    text-align: center;
+/* Projects Section */
+#projects {
     padding: 4rem 1rem;
-    min-height:100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#hero blockquote {
-    font-style: italic;
-    color: #FFFFFF;
-    font-size: 1rem;
-    max-width: 800px;
-    margin: 2rem auto 0;
+    background: linear-gradient(to bottom, #0ABAB5, #884513);
     text-align: center;
-    line-height: 1.5;
-    opacity: 0.8;
+    color: #FFFFFF;
 }
 
-#hero h2 {
-    font-size: 2rem;
+#projects h2 {
+    font-size: 2.5rem;
     margin-bottom: 2rem;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
+.project-card {
+    max-width: 700px;
+    margin: 0 auto 2rem;
     background: #FFFFFF;
-    color: #8B4513;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 5px;
-    border: 2px solid #8B4513;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    color: #0ABAB5;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cta-button:hover {
-    background: #8B4513;
+.project-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #884513;
+}
+
+.project-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.project-card .project-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.project-card .btn {
+    text-decoration: none;
+    background: #0ABAB5;
+    color: #FFFFFF;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.project-card .btn:hover {
+    background: #884513;
+    transform: translateY(-2px);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Skills Section */
+#skills {
+    padding: 4rem 1rem;
+    background: linear-gradient(to bottom, #884513, #0ABAB5);
+    text-align: center;
     color: #FFFFFF;
 }
 
-/* Section Styles */
-section {
-    padding: 2rem;
-    text-align:center;
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
-    transform: translateY(50px);
+#skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
 }
 
-section.show { 
+.skills-hover-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hover-card {
+    position: relative;
+    background: #FFFFFF;
+    color: #0ABAB5;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.hover-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.hover-card p {
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hover-card:hover h3 {
+    color: #884513;
+}
+
+.hover-card:hover p {
     opacity: 1;
     transform: translateY(0);
 }
 
-/*Skills Section*/
-#skills ul {
-    list-style: disc;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    max-width: 660px;
-    text-align: left;
+/* Skills Section */
+#skills {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #0ABAB5, #884513);
 }
 
-#skills ul li {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 2rem;
 }
 
-/* Projects Section */
-section#projects div {
+.skill-card {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.skill-card .card-front,
+.skill-card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #FFFFFF;
-    border: 2px solid #0ABAB5;
-    padding: 1.5rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 1rem auto;
-    max-width: 700px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
 }
 
-section#projects div h3 {
-    color: #884513;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+.skill-card .card-front {
+    flex-direction: column;
+    transform: rotateY(0deg);
 }
 
-section#projects div p {
+.skill-card .card-front i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
     color: #0ABAB5;
+}
+
+.skill-card .card-back {
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 1rem;
+}
+
+.skill-card:hover .card-front {
+    transform: rotateY(-180deg);
+}
+
+.skill-card:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+/* Skills Section */
+#skills {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #0ABAB5, #884513);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease-in-out;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    text-align: center;
 }
 
-section#projects div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+.card-front {
+    background: #fff;
+    color: #0ABAB5;
+    transform: rotateY(0deg);
 }
 
-section#projects .btn {
-    display: inline-block;
-    margin: 0.5rem 0;
-    padding: 0.5rem 1rem;
-    color: #884513;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #884513;
-    border-radius: 4px;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-section#projects .btn:hover {
+.card-back {
     background: #884513;
+    color: #fff;
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-front {
+    transform: rotateY(-180deg);
+}
+
+.card:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+.card i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Add some hover animation */
+.card:hover {
+    transform: scale(1.1);
+}
+
+/* Icon Styling */
+.icon-html::before { content: "<>"; }
+.icon-css::before { content: "{}"; }
+.icon-js::before { content: "JS"; }
+.icon-react::before { content: "⚛"; }
+.icon-python::before { content: "🐍"; }
+.icon-mysql::before { content: "DB"; }
+.icon-figma::before { content: "🎨"; }
+.icon-node::before { content: "🖥"; }
+
+/* Experience Section */
+#experience {
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #884513, #0ABAB5);
+    text-align: center;
     color: #FFFFFF;
 }
 
-
-/* Experience Section */
-#experience ul {
-    list-style: disc;
-    margin-left: 1.5rem;
+#experience h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
 }
 
-#experience ul li {
+.job-history {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.job-card {
+    background: #FFFFFF;
+    color: #0ABAB5;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.job-card h3 {
+    font-size: 1.8rem;
+    color: #884513;
+    margin-bottom: 1rem;
+}
+
+.job-card p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.job-card ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    list-style-type: disc;
+}
+
+.job-card ul li {
     margin-bottom: 0.5rem;
     font-size: 1rem;
-    line-height: 1.5;
 }
 
-#experience h3 {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.4rem;
+.personal-note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-style: italic;
+    color: #884513;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1rem;
 }
-
-#resume {
-    background: #884513; /* Brown color matching the header */
-    padding: 2rem;
-    color: #FFFFFF; /* Ensure text is visible on the brown background */
-}
-
-
-#resume p {
-    text-align: center;
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
-
-/* Contact Form */
+/* Contact Form Section */
 #contact {
-    padding: 2rem;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #0ABAB5, #884513);
     text-align: center;
-    background: #0ABAB5;
+    color: #FFFFFF;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#contact p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
 #contact form {
     max-width: 600px;
     margin: 0 auto;
-    padding: 1.5rem;
     background: #FFFFFF;
-    color: #8B4513;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0,  0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #0ABAB5;
+    text-align: left;
 }
 
 #contact form label {
     display: block;
-    text-align: left;
     margin-bottom: 0.5rem;
-    font-weight:bold;
-    color: #8B4513;
+    font-weight: bold;
+    color: #884513;
 }
 
 #contact form input,
 #contact form textarea {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
     border: 1px solid #0ABAB5;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    border-radius: 5px;
+    font-size: 1rem;
     color: #333;
     background: #F4F4F4;
-    outline:  none;
-    transition: border 0.3s ease;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 #contact form input:focus,
 #contact form textarea:focus {
-    border-color: #8B4513;
+    border-color: #884513;
     background: #FFFFFF;
 }
 
 #contact form button {
-    padding: 0.8rem 1.5rem;
-    background: #8B4513;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #0ABAB5;
     color: #FFFFFF;
-    border: none;
-    border-radius: 4px;
     font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 #contact form button:hover {
-    background: #0ABAB5;
+    background: #884513;
 }
 
-/* Footer */
-footer {
+#success-message {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    font-weight: bold;
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Confetti Animation Keyframes */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+#animated-footer {
+    background: #884513;
+    padding: 2rem;
     text-align: center;
-    padding: 1rem;
-    background: #8B4513;
     color: #FFFFFF;
 }
-
-/* GSAP Animation Styles */
-.project {
-    cursor: pointer;
-    transform: scale(1);
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Typing Animation */
-.typed-cursor {
-    font-size: 1.2rem;
-    font-weight: bold;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0%, 50% {
-        opacity: 1;
-    }
-    50%, 100% {
-        opacity: 0;
-    }
-}
-
-
