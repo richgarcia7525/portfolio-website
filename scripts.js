@@ -123,3 +123,23 @@ form.addEventListener("submit", async (e) => {
     alert("An error occurred. Please try again later.");
   }
 });
+
+async function submitForm(event) {
+    event.preventDefault();
+    try {
+        const response = await fetch('/send-email', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert(data.message);
+        } else {
+            alert(data.message); // Display error message from backend
+        }
+    } catch (error) {
+        alert('An unexpected error occurred. Please try again later.');
+    }
+}

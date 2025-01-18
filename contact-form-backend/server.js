@@ -42,3 +42,17 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+app.post('/send-email', async (req, res) => {
+    try {
+        // Email sending logic here
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ message: 'Email sent successfully!' });
+    } catch (error) {
+        console.error('Error sending email:', error);
+        res.status(500).json({
+            message: 'This form is currently disabled due to email provider restrictions. Please use the provided email address to contact us.',
+        });
+    }
+});
+
